@@ -1,0 +1,8 @@
+{{ define "title" }}
+    {{ .Site.Title }} | {{ .Title }}
+{{ end }}
+{{ define "main" }}
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Date.Format "2006-01-02" | safeHTML }}</p>
+    {{ .Content }}
+{{ end }}

@@ -1,4 +1,3 @@
 baseURL = 'http://tl.neocities.org/'
 languageCode = 'en-us'
 title = 'tl'
-theme = "ananke"

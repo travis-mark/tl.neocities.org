@@ -4,11 +4,19 @@ date: 2022-06-22
 ---
 
 <p>While testing a few things out in React Native I needed a faux API to call and
+    some images to load.
+<!--more-->
+
+<p>While testing a few things out in React Native I needed a faux API to call and
 some images to load. I've added a few files to <kbd>static/</kbd>:
 
 <p><a href="/dogs/index.json">JSON list of dog pictures</a>
 
-<div style="display: grid; grid-gap: 10px; grid-template-columns: 50% 50%;">
+<style>
+    img { max-width: 48%; }
+</style>
+
+<div>
     <img src="/dogs/IMG_4976.jpeg">
     <img src="/dogs/IMG_5307.jpeg">
     <img src="/dogs/IMG_5532.jpeg">
