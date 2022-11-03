@@ -9,8 +9,7 @@
     {{ end -}}
     <style>
         body { font-family: sans-serif; font-size: 17pt; margin: 0; }
-        header { padding: 0.75rem; }
-        header a { display: flex; flex-direction: row; align-items: center; }
+        header { padding: 0.75rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
         main { margin: auto; max-width: 72ch; padding: 0.75rem; }
         a { text-decoration: none; }
         h1 { font-size: 28px; }
@@ -23,14 +22,14 @@
             body, .bg0 { background-color: #fbf1c7; color: #3c3836; }
             header, .bg1 { background-color: #ebdbb2; color: #3c3836; }
             ::selection { background-color: #3c3836; color: #fbf1c7; }
-            a { background-color: #fbf1c7; color: #076678; }
+            a { color: #076678; }
             a::selection { background-color: #458588; color: #fbf1c7; }
         }
         @media (prefers-color-scheme: dark) {
             body, .bg0 { background-color: #282828; color: #ebdbb2; }
             header, .bg1 { background-color: #3c3836; color: #ebdbb2; }
             ::selection { background-color: #ebdbb2; color: #282828; }
-            a { background-color: #282828; color: #83a598; }
+            a { color: #83a598; }
             a::selection { background-color: #458588; color: #ebdbb2; }
         }
     </style>
@@ -43,10 +42,14 @@
 
 <body>
     <header>
-        <a class="bg1" href="/">
+        <a href="/" style="display: flex; flex-direction: row; align-items: center;">
             <img src="/ff4.jpg" height="44" style="margin-inline-end:  8px;">
             Travis Luckenbaugh's Personal Site
         </a>
+        <div>
+            <a href="/posts/">Posts</a> |
+            <a href="/links/">Links</a>
+        </div>
     </header>
     <main>
         {{ block "main" . }}{{ end }}
