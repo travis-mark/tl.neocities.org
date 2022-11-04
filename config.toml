@@ -1,3 +1,7 @@
 baseURL = 'http://tl.neocities.org/'
 languageCode = 'en-us'
 title = 'tl'
+
+[permalinks]
+  posts = '/:year/:month/:title/'
+  links = '/links/:year/:month/:day/:title/'
