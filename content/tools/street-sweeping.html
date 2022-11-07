@@ -1,0 +1,193 @@
+---
+title: 'Street Sweeping'
+date: 2022-11-06T12:04:00-04:00
+summary: Is street sweeping this week?
+---
+<style>
+    .calendar { background-color: var(--bg1); }
+    .calendar #monthYear { padding: 4px; }
+    .calendar td { border: none; width: 44px; height: 44px; padding: 0; text-align: center; }
+    .today { color: var(--fg-blue); font-weight: bold; }
+    .selected { background-color: var(--bg2); border-radius: 22px; }
+    .selected.today { background-color: var(--bg-blue); color: #fff; }
+    .nomonth { color: var(--fg4); }
+    .street { color: var(--bg-red); border-radius: 22px; }
+    .selected.street { background-color: var(--bg-red); color: #fff; border-radius: 22px; }
+</style>
+<script>
+    function to_ord_string(number) {
+        const digits = number % 100;
+        if (digits % 10 == 1 && digits != 11) {
+            return `${number}st`;
+        }
+        if (digits % 10 == 2 && digits != 12) {
+            return `${number}nd`;
+        }
+        if (digits % 10 == 2 && digits != 13) {
+            return `${number}rd`;
+        }
+        return `${number}th`;
+    }
+
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    function same_date(d1, d2) {
+        return d1.toDateString() == d2.toDateString();
+    }
+
+    function is_street_cleaning(date) {
+        const day = date.getDay();
+        const week = Math.floor((date.getDate() - 1) / 7) + 1;
+        if (day == 4 || day == 5) {
+            if (week == 2 || week == 4) {
+                return true;
+            }
+        }
+    }
+
+    function set_date(_value) {
+        const today = new Date();
+        const value = new Date(_value);
+        const week = Math.floor((value.getDate() - 1) / 7) + 1;
+        const year = 1900 + value.getYear();
+        let date = document.getElementById("date");
+        date.innerText = value.toLocaleDateString();
+        let ord = document.getElementById("ord");
+        ord.className = is_street_cleaning(value) ? "street" : "";
+        ord.innerText = to_ord_string(week);
+        let day = document.getElementById("day");
+        day.className = is_street_cleaning(value) ? "street" : "";
+        day.innerText = days[value.getDay()];
+        let monthYear = document.getElementById("monthYear");
+        monthYear.innerText = `${months[value.getMonth()]} ${year}`;
+        let calendar = document.getElementById("calendar");
+        let currMonthStart = new Date(value);
+        currMonthStart.setDate(1);
+        let start = -currMonthStart.getDay();
+        let prevMonthStart = new Date(currMonthStart);
+        prevMonthStart.setMonth(currMonthStart.getMonth() - 1);
+        let prevMonth = document.getElementById("prevMonth");
+        prevMonth.setAttribute('onclick', `set_date("${prevMonthStart.toDateString()}")`);
+        let nextMonthStart = new Date(currMonthStart);
+        nextMonthStart.setMonth(currMonthStart.getMonth() + 1);
+        let nextMonth = document.getElementById("nextMonth");
+        nextMonth.setAttribute('onclick', `set_date("${nextMonthStart.toDateString()}")`);
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 7; j++) {
+                let slot = calendar.rows[i+1].cells[j];
+                let slot_date = new Date(value);
+                let offset = start + (i*7) + j + 1;
+                slot_date.setDate(offset);
+                slot.className = "";
+                if (same_date(slot_date, value)) {
+                    slot.classList.add("selected");
+                }
+                if (same_date(slot_date, today)) {
+                    slot.classList.add("today");
+                }
+                if (slot_date.getMonth() != value.getMonth()) {
+                    slot.classList.add("nomonth");
+                }
+                if (is_street_cleaning(slot_date)) {
+                    slot.classList.add("street");
+                }
+                slot.innerText = slot_date.getDate();
+                slot.setAttribute('onclick', `set_date("${slot_date.toDateString()}")`);
+            }
+        }
+    }
+
+    function body_onload() {
+        set_date(new Date());
+    }
+</script>
+<body onload="body_onload()">
+    <div style="align-items: center; display: flex; flex-direction: column;">
+        <div style="text-align: center; padding-bottom: 1ch">
+            <span id="date">9999-12-31</span> is the 
+            <span id="ord">nth</span>
+            <span id="day">Humpday</span>
+            <br />
+            of this month
+        </div>
+        <div class="calendar">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 4px;">
+                <div id="monthYear">XXXXXXXX 9999</div>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                    <div id="prevMonth" style="width: 44px; text-align: center; color: var(--fg-blue);">&lt;</div>
+                    <div id="nextMonth" style="width: 44px; text-align: center; color: var(--fg-blue);">&gt;</div>
+                </div>
+            </div>
+            <table id="calendar">
+                <tr>
+                    <td>S</td>
+                    <td>M</td>
+                    <td>T</td>
+                    <td>W</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>S</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>31</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+            </table>
+        </div>
+        <div style="text-align: center; padding-top: 1ch">
+            Street cleaning is 2nd and 4th<br />Thursday and Friday.
+        </div>
+    </div>
+</body>
+

@@ -3,27 +3,56 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="ff4.jpg">
     {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
     <style>
+        /* Dark mode (also default if device lacks media query) */
+        :root {
+            --bg0: #282828;
+            --bg1: #3c3836;
+            --bg2: #504945;
+            --bg4: #7c6464;
+            --bg-red: #cc241d;
+            --bg-blue: #458888;
+            --bg-orange: #d65d0e;
+            --fg0: #fbf1c7;
+            --fg1: #ebdbb2;
+            --fg2: #d5c4a1;
+            --fg3: #bdae93;
+            --fg4: #a89984;
+            --fg-red: #fb4934;
+            --fg-blue: #83a598;
+            --fg-orange: #fe8019;
+        }
         @media (prefers-color-scheme: light) {
-            body, .bg0 { background-color: #fbf1c7; color: #3c3836; }
-            header, .bg1 { background-color: #ebdbb2; color: #3c3836; }
-            ::selection { background-color: #3c3836; color: #fbf1c7; }
-            a { color: #076678; }
-            a::selection { background-color: #458588; color: #fbf1c7; }
-            blockquote { border-left: 1px solid #7c6464; }
+            :root {
+                --bg0: #fbf1c7;
+                --bg1: #ebdbb2;
+                --bg2: #d5c4a1;
+                --bg4: #a89984;
+                --bg-red: #cc241d;
+                --bg-blue: #458888;
+                --bg-orange: #d65d0e;
+                --fg0: #282828;
+                --fg1: #3c3836;
+                --fg2: #504945;
+                --fg3: #665c54;
+                --fg4: #7c6f64;
+                --fg-red: #9d0006;
+                --fg-blue: #076678;
+                --fg-orange: #af3a03;
+            }
         }
-        @media (prefers-color-scheme: dark) {
-            body, .bg0 { background-color: #282828; color: #ebdbb2; }
-            header, .bg1 { background-color: #3c3836; color: #ebdbb2; }
-            ::selection { background-color: #ebdbb2; color: #282828; }
-            a { color: #83a598; }
-            a::selection { background-color: #458588; color: #ebdbb2; }
-            blockquote { border-left: 1px solid #a89984; }
-        }
+        body { background-color: var(--bg0); color: var(--fg1); }
+        header { background-color: var(--bg1); color: var(--fg1); }
+        ::selection { background-color: var(--fg1); color: var(--bg0); }
+        a { color: var(--fg-blue); }
+        a::selection { background-color: var(--bg-blue); color: var(--bg0); }
+        blockquote { border-left: 1px solid var(--bg4); }
+
         body { font-family: sans-serif; font-size: 17pt; margin: 0; }
         header { padding: 0.75rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
         main { margin: auto; max-width: 72ch; padding: 0.75rem; }
@@ -35,6 +64,10 @@
         h2, .m2 { margin: 11px 0; }
         h3, .m3 { margin: 12px 0; }
         blockquote { margin-left: .5ch; padding-left: 1ch; }
+        
+        @media (max-width: 640px) {
+            .max-640px-hidden { display: none; }
+        }
     </style>
     <title>
         {{ block "title" . }}
@@ -47,11 +80,12 @@
     <header>
         <a href="/" style="display: flex; flex-direction: row; align-items: center;">
             <img src="/ff4.jpg" height="44" style="margin-inline-end:  8px;">
-            Travis Luckenbaugh's Personal Site
+            <span class="max-640px-hidden">Travis Luckenbaugh's Personal Site</span>
         </a>
         <div>
             <a href="/posts/">Posts</a> |
-            <a href="/links/">Links</a>
+            <a href="/links/">Links</a> |
+            <a href="/tools/">Tools</a>
         </div>
     </header>
     <main>
