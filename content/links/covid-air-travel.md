@@ -1,8 +1,7 @@
 ---
 title: "COVID Air Travel"
-date: 2022-11-02T20:47:05-04:00
+date: 2022-11-03
 link: https://thezvi.substack.com/p/covid-11322-asking-forgiveness
-link-date: 2022-08-19
 tags: [covid]
 ---
 
