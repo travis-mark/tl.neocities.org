@@ -1,0 +1,32 @@
+name: Build and Deploy
+
+# only run on changes to master
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: # prevent concurrent deploys doing strange things
+  group: deploy-to-neocities
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.102.3
+    steps:
+    - name: Install Hugo CLI
+      run: |
+           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
+           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+    - uses: actions/checkout@v1
+    - name: Build with Hugo
+      run: hugo
+    - name: Deploy to Neocities
+      uses: bcomnes/deploy-to-neocities@v1
+      with:
+        api_token: ${{ secrets.NEOCITIES_API_KEY }}
+        cleanup: false
+        dist_dir: public
