@@ -1,0 +1,93 @@
+---
+title: Is It Fair To Compare Biden's And Trump's Classified Documents Scandals?
+date: 2023-01-25
+link: https://fivethirtyeight.com/features/is-it-fair-to-compare-bidens-and-trumps-classified-documents-scandals/
+draft: false
+---
+<article>
+    <a
+        href="https://fivethirtyeight.com/features/is-it-fair-to-compare-bidens-and-trumps-classified-documents-scandals/">FiveThirtyEight</a>
+    makes an interesting but not particularly surprising claim about media bias. How big is bias between news networks?
+    <!--more-->
+    <a
+        href="https://fivethirtyeight.com/features/is-it-fair-to-compare-bidens-and-trumps-classified-documents-scandals/">FiveThirtyEight</a>
+    makes an interesting but not particularly surprising claim about media bias. How big is bias between news networks?
+    <p>Headline:</p>
+    <blockquote>
+        <p>The Mar-a-Lago raid got some coverage on cable
+            … But not as much as the discoveries of Biden's papers</p>
+    </blockquote>
+    <p>Detail:</p>
+    <blockquote>
+        <p>But the coverage gap is due to one channel in particular. CNN has covered the stories the most equally…</p>
+    </blockquote>
+    <blockquote>
+        <p>But Fox News has covered Biden's scandal way more than it covered Trump's</p>
+    </blockquote>
+    <p>FiveThirtyEight has arguments for why the two stories aren't worthy of equal coverage. Let's pretend the two
+        stories have equal “controversy” which is easiest to test around each story's peak coverage. How partisan is
+        each network?</p>
+    <table class="bias">
+        <thead>
+            <tr>
+                <th class="left">Story</th>
+                <th class="right">Trump (R)</th>
+                <th class="right">Biden (D)</th>
+                <th class="right">Bias</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Date of Peak</td>
+                <td class="right">12 Aug 2022</td>
+                <td class="right">12 Jan 2023</td>
+                <td class="right"></td>
+            </tr>
+            <tr>
+                <td>Segments</td>
+                <td class="right"></td>
+                <td class="right"></td>
+                <td class="right"></td>
+            </tr>
+            <tr class="indent">
+                <td>CNN</td>
+                <td class="right">275</td>
+                <td class="right">276</td>
+                <td class="right">0.3 % D</td>
+            </tr>
+            <tr class="indent">
+                <td>MSNBC</td>
+                <td class="right">389</td>
+                <td class="right">237</td>
+                <td class="right">39.1 % D</td>
+            </tr>
+            <tr class="indent">
+                <td>FOX</td>
+                <td class="right">163</td>
+                <td class="right">407</td>
+                <td class="right">60.0 % R</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td class="right">827</td>
+                <td class="right">1072</td>
+                <td class="right">22.9 % R</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Bias is calculated as:</p>
+    <pre>
+        when R > D 
+        then `+ ${1-(R/D)*100}` % R 
+        else `+ ${1-(D/R)*100}` % D
+    </pre>
+    <p>I have no clue if this is a "fair" way to do it.</p>
+</article>
+<style>
+    .bias { border-collapse: collapse; width: 100%; }
+    .bias td { padding-bottom: 4px;}
+    .bias .left { text-align: left; }
+    .bias .right { text-align: right; }
+    .bias .indent { background-color: var(--bg1); }
+    .bias .indent td:nth-child(1) { padding-left: 2ch; }
+</style>
