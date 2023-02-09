@@ -1,8 +1,10 @@
 ---
 title: Unbundling Tools for Thought
 date: 2022-12-26
-link: https://borretti.me/article/unbundling-tools-for-thought
+tags: [excerpt]
 ---
+
+Original: [Unbundling Tools for Thought](https://borretti.me/article/unbundling-tools-for-thought)
 
 > In practice 95% of the use cases can be naturally unbundled into disjoint apps, and the lack of centralization and cross-app hyperlinking has no real negative effects.
 

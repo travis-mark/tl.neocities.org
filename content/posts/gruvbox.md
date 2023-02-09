@@ -1,7 +1,6 @@
 ---
 title: "Gruvbox"
 date: 2022-08-19
-link: https://github.com/morhetz/gruvbox
 tags: [personal-site]
 ---
 

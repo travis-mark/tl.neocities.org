@@ -1,7 +1,7 @@
 ---
 title: "Toolsmith"
 date: 2022-11-18
-link: https://www.cs.unc.edu/~brooks/Toolsmith-CACM.pdf
+tags: [excerpt]
 ---
 
 Fred Brooks, ACM Allen Newell Award [acceptance speech](https://www.cs.unc.edu/~brooks/Toolsmith-CACM.pdf):

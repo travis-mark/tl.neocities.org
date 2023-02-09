@@ -1,7 +1,0 @@
-{{ define "title" }}
-    {{ .Site.Title }} | {{ .Title }}
-{{ end }}
-{{ define "main" }}
-    <h2><a href="{{.Params.link}}">{{ .Title }}</a></h2>
-    {{ .Content }}
-{{ end }}
