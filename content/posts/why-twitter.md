@@ -3,7 +3,11 @@ title: "Twitter: Where Next?"
 date: 2023-02-09
 ---
 
-Some friends who are aware of Elon's acquistion and destruction of Twitter have asked about the value of Twitter relative to other social media like Facebook or YouTube. This [thread about the minor character Red Hair](https://twitter.com/hradzka/status/1611489902570639361) in the Conan the Barbarian movie is a good example:
+Some friends who are aware of Elon's acquistion and destruction of Twitter have asked about the value of Twitter relative to other social media like Facebook or YouTube. 
+
+<!--more-->
+
+This [thread about the minor character Red Hair](https://twitter.com/hradzka/status/1611489902570639361) in the Conan the Barbarian movie is a good example:
 
 - Facebook, et. al. are too private
 - YouTube, et. al. force higher production content (videos) taking longer to produce / consume
