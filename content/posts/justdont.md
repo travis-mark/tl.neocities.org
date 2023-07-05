@@ -1,7 +1,7 @@
 ---
 title: "Just Don't"
 date: 2022-11-07
-tags: [excerpt]
+link: https://www.tbray.org/ongoing/When/202x/2022/11/07/Just-Dont
 ---
 
 [Tim Bray](https://www.tbray.org/ongoing/When/202x/2022/11/07/Just-Dont): 

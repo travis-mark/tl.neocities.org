@@ -1,8 +1,6 @@
 ---
 title: "Github Actions"
 date: 2022-11-10T16:40:01-05:00
-link: https://github.com/travis-mark/tl.neocities.org/blob/main/.github/workflows/main.yml
-tags: [personal-site]
 ---
 
 It's a little excessive for this site, but researching various automation options led me to glue a Hugo CLI install and build template provided by GitHub to a

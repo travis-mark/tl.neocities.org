@@ -1,7 +1,6 @@
 ---
 title: Unbundling Tools for Thought
 date: 2022-12-26
-tags: [excerpt]
 ---
 
 Original: [Unbundling Tools for Thought](https://borretti.me/article/unbundling-tools-for-thought)

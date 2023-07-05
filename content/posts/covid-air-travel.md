@@ -1,7 +1,6 @@
 ---
 title: "COVID Air Travel"
 date: 2022-11-03
-tags: [covid, repost]
 ---
 
 [Zvi Mowshowitz](https://thezvi.substack.com/p/covid-11322-asking-forgiveness):
