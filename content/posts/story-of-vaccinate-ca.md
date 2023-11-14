@@ -1,8 +1,6 @@
 ---
 title: The Story of VaccinateCA
 date: 2022-12-08
-tags: [excerpt]
-link: https://www.worksinprogress.co/issue/the-story-of-vaccinateca/
 ---
 
 [The Story of VaccinateCA](https://www.worksinprogress.co/issue/the-story-of-vaccinateca/)

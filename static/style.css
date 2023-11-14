@@ -1,0 +1,29 @@
+/* Font styles */
+* { font-family: 'Courier New', Courier, monospace;}
+.headline, h1, h2, h3, h4, h5, h6 { font-size: 17px; font-weight: 700; }
+.caption { font-size: 17px; }
+
+/* Layout */
+body { max-width: 72ch; }
+
+/* Colors */
+html {
+    --bg-color: rgb(29, 31, 32);
+    --fg-color: rgb(255, 255, 255);
+    --active-color: rgb(255, 215, 0);
+    --hover-color: var(--fg-color);
+    --visited-color: rgb(218, 165, 32);
+}
+html {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+}
+a {
+    color: var(--active-color);
+}
+a:hover {
+    color: var(--hover-color);
+}
+a:visited {
+    color: var(--visited-color);
+}

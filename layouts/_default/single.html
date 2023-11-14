@@ -2,7 +2,48 @@
     {{ .Site.Title }} | {{ .Title }}
 {{ end }}
 {{ define "main" }}
-    <h2>{{ .Title }}</h2>
-    <p>{{ .Date.Format "2006-01-02" | safeHTML }}</p>
-    {{ .Content }}
+<section id="main">
+    <div>
+        <div id="title" class="headline">{{ .Title }}</div>
+        <span class="caption" for="title">
+            <span id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </span>
+            | <span id="wordcount"> {{ .WordCount }} Words </span>
+        </span>
+    </div>
+    <div style="margin: 1ch 0;">
+        <article id="content">
+            {{ .Content }}
+        </article>
+    </div>
+</section>
+<aside id="meta">
+    <div>
+        {{ with .GetTerms "topics" }}
+        <ul id="topics">
+            {{ range . }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+        {{ with .GetTerms "tags" }}
+        <ul id="tags">
+            {{ range . }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="flex: 1">
+        {{ with .PrevInSection }}
+        <a class="previous" href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+        </div>
+        <div style="flex: 1; text-align: right;">
+        {{ with .NextInSection }}
+        <a class="next" href="{{ .Permalink }}"> {{ .Title }}</a>
+        {{ end }}
+        </div>
+    </div>
+</aside>
 {{ end }}

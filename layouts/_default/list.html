@@ -1,22 +1,13 @@
 {{ define "main" }}
+<table>
     {{ range where .Site.RegularPages "Section" "posts" }}
-    <article>
-        <h2>
-            {{ if .Params.link }}
-            <a href="{{.Params.link}}">{{ .Title }}</a>
-            {{ else }}
-            <a href="{{.Permalink}}">{{ .Title }}</a>
-            {{ end }}
-        </h2>
-        {{ .Summary }}
-        <div class="m2">
-            {{ if .Params.link }}
-            <a href="{{.Params.link}}">Go to website ></a>
-            {{ else }}
-            <a href="{{.Permalink}}">Read more ></a>
-            {{ end }}
-        </div>
-        <hr style="margin-inline-end: 4%;">
-    </article>
+    <tr>
+        <td class="date">{{ .Date.Format "2006-01-02" }}</td>
+        <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+    </tr>
     {{ end }}
+</table>
+<style>
+    .date { width: 10ch; vertical-align: top; }
+</style>
 {{ end }}

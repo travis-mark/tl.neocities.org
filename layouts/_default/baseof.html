@@ -4,71 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="ff4.jpg">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="icon" type="image/x-icon" href="/ff4.jpg">
     {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
-    <style>
-        /* Dark mode (also default if device lacks media query) */
-        :root {
-            --bg0: #282828;
-            --bg1: #3c3836;
-            --bg2: #504945;
-            --bg4: #7c6464;
-            --bg-red: #cc241d;
-            --bg-blue: #458888;
-            --bg-orange: #d65d0e;
-            --fg0: #fbf1c7;
-            --fg1: #ebdbb2;
-            --fg2: #d5c4a1;
-            --fg3: #bdae93;
-            --fg4: #a89984;
-            --fg-red: #fb4934;
-            --fg-blue: #83a598;
-            --fg-orange: #fe8019;
-        }
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg0: #fbf1c7;
-                --bg1: #ebdbb2;
-                --bg2: #d5c4a1;
-                --bg4: #a89984;
-                --bg-red: #cc241d;
-                --bg-blue: #458888;
-                --bg-orange: #d65d0e;
-                --fg0: #282828;
-                --fg1: #3c3836;
-                --fg2: #504945;
-                --fg3: #665c54;
-                --fg4: #7c6f64;
-                --fg-red: #9d0006;
-                --fg-blue: #076678;
-                --fg-orange: #af3a03;
-            }
-        }
-        body { background-color: var(--bg0); color: var(--fg1); }
-        header { background-color: var(--bg1); color: var(--fg1); }
-        ::selection { background-color: var(--fg1); color: var(--bg0); }
-        a { color: var(--fg-blue); }
-        a::selection { background-color: var(--bg-blue); color: var(--bg0); }
-        blockquote { border-left: 1px solid var(--bg4); }
-
-        body { font-family: sans-serif; font-size: 17pt; margin: 0; }
-        header { padding: 0.75rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
-        main { margin: auto; max-width: 72ch; padding: 0.75rem; }
-        a { text-decoration: none; }
-        h1 { font-size: 28px; }
-        h2 { font-size: 22px; }
-        h3 { font-size: 20px; }
-        h1, .m1 { margin: 8px 0; }
-        h2, .m2 { margin: 11px 0; }
-        h3, .m3 { margin: 12px 0; }
-        blockquote { margin-left: .5ch; padding-left: 1ch; }
-        
-        @media (max-width: 640px) {
-            .max-640px-hidden { display: none; }
-        }
-    </style>
     <title>
         {{ block "title" . }}
         {{ .Site.Title }}
@@ -77,14 +17,14 @@
 </head>
 
 <body>
-    <header>
-        <a href="/" style="display: flex; flex-direction: row; align-items: center;">
-            <img src="/ff4.jpg" height="44" style="margin-inline-end:  8px;">
-            <span class="max-640px-hidden">Travis Luckenbaugh's Personal Site</span>
-        </a>
+    <header style="display: flex; flex-direction: row; gap: 8px; align-items: center; margin-bottom: 1ch;">
+        <img src="/ff4.jpg" height="44">
         <div>
-            <a href="/posts/">Posts</a> |
-            <a href="/tools/">Tools</a>
+            <a class="headline" href="/">Travis Luckenbaugh</a>
+            <div>
+                <a href="/posts/">Posts</a> |
+                <a href="/tools/">Tools</a>
+            </div>
         </div>
     </header>
     <main>
