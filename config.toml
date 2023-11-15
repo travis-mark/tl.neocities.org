@@ -6,3 +6,8 @@ title = 'tl'
   posts = '/:year/:month/:title/'
   links = '/links/:year/:month/:day/:title/'
   tools = '/tools/:title/'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
