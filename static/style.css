@@ -5,10 +5,12 @@
 
 /* Layout */
 body { max-width: 72ch; }
+img { max-width: 72ch; } 
 
 /* Colors */
 html {
     --bg-color: rgb(29, 31, 32);
+    --bg-sec-color: rgb(44, 49, 53);
     --fg-color: rgb(255, 255, 255);
     --active-color: rgb(255, 215, 0);
     --hover-color: var(--fg-color);
@@ -26,4 +28,7 @@ a:hover {
 }
 a:visited {
     color: var(--visited-color);
+}
+code, kbd, pre, blockquote {
+    background-color: var(--bg-sec-color);
 }
