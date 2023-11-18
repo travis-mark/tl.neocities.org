@@ -4,34 +4,23 @@ date: 2022-11-06T12:04:00-04:00
 summary: Is street sweeping this week?
 ---
     <style>
-        /* Dark mode (also default if device lacks media query) */
         :root {
-            --bg0: #282828;
-            --bg1: #3c3836;
-            --bg2: #504945;
-            --bg4: #7c6464;
-            --bg-red: #cc241d;
-            --bg-blue: #458888;
-            --bg-orange: #d65d0e;
-            --fg0: #fbf1c7;
-            --fg1: #ebdbb2;
-            --fg2: #d5c4a1;
-            --fg3: #bdae93;
-            --fg4: #a89984;
+            --bg-selected: #504945;
+            --bg-today: #458888;
+            --fg-nomonth: #a89984;
             --fg-red: #fb4934;
-            --fg-blue: #83a598;
-            --fg-orange: #fe8019;
+            --fg-today: #83a598;
         }
     </style>
 <style>
-    .calendar { background-color: var(--bg1); }
+    .calendar { background-color: var(--bg-sec-color); }
     .calendar #monthYear { padding: 4px; }
     .calendar td { border: none; width: 44px; height: 44px; padding: 0; text-align: center; }
-    .today { color: var(--fg-blue); font-weight: bold; }
-    .selected { background-color: var(--bg2); border-radius: 22px; }
-    .selected.today { background-color: var(--bg-blue); color: #fff; }
-    .nomonth { color: var(--fg4); }
-    .street { color: var(--bg-red); border-radius: 22px; }
+    .today { color: var(--fg-today); font-weight: bold; }
+    .selected { background-color: var(--bg-selected); border-radius: 22px; }
+    .selected.today { background-color: var(--bg-today); color: #fff; }
+    .nomonth { color: var(--fg-nomonth); }
+    .street { color: var(--active-color); border-radius: 22px; }
     .selected.street { background-color: var(--bg-red); color: #fff; border-radius: 22px; }
 </style>
 <script>
@@ -135,8 +124,8 @@ summary: Is street sweeping this week?
             <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 4px;">
                 <div id="monthYear">XXXXXXXX 9999</div>
                 <div style="display: flex; flex-direction: row; align-items: center;">
-                    <div id="prevMonth" style="width: 44px; text-align: center; color: var(--fg-blue);">&lt;</div>
-                    <div id="nextMonth" style="width: 44px; text-align: center; color: var(--fg-blue);">&gt;</div>
+                    <div id="prevMonth" style="width: 44px; text-align: center; color: var(--active-color);">&lt;</div>
+                    <div id="nextMonth" style="width: 44px; text-align: center; color: var(--active-color);">&gt;</div>
                 </div>
             </div>
             <table id="calendar">

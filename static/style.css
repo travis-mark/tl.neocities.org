@@ -32,3 +32,9 @@ a:visited {
 code, kbd, pre, blockquote {
     background-color: var(--bg-sec-color);
 }
+pre, blockquote {
+    background-color: var(--bg-sec-color);
+    margin: 0;
+    padding: 1px 8px;
+    border-left: 2px solid var(--visited-color);
+}

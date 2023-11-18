@@ -19,4 +19,4 @@ From my e-mail:
 >
 > The Google News Team
 
-Friendly reminder: all google services are temporary.
+Friendly reminder: All Google services are temporary. An actual sensible shutdown would involve creating a folder in each user's Google Drive with the exports Google is making people do by hand. Google's approach would be poor behavior if Google was dying which they are not.
