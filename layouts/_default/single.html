@@ -3,14 +3,14 @@
 {{ end }}
 {{ define "main" }}
 <section id="main">
-    <div>
-        <div id="title" class="headline">{{ .Title }}</div>
+    <div style="margin-bottom: 8px;">
+        <div id="title" class="title">{{ .Title }}</div>
         <span class="caption" for="title">
             <span id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </span>
             | <span id="wordcount"> {{ .WordCount }} Words </span>
         </span>
     </div>
-    <div style="margin: 1ch 0;">
+    <div>
         <article id="content">
             {{ .Content }}
         </article>

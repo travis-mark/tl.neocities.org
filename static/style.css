@@ -1,11 +1,15 @@
 /* Font styles */
-* { font-family: 'Courier New', Courier, monospace;}
-.headline, h1, h2, h3, h4, h5, h6 { font-size: 17px; font-weight: 700; }
-.caption { font-size: 17px; }
+body { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; }
+.title { font-size: 25px; font-weight: 400; }
+h1 { font-size: 19px; font-weight: 400; }
+h2 { font-size: 17px; font-weight: 400; }
+h3, h4, h5, h6 { font-size: 14px; font-weight: 700; }
+code, kbd, pre, blockquote { font-family: 'Berkeley Mono', monospace; font-size: 13px; }
 
 /* Layout */
-body { max-width: 72ch; }
-img { max-width: 72ch; } 
+body { max-width: 600px; word-wrap: break-word; }
+h1, h2, h3, h4, h5, h6, p, blockquote { margin: 8px 0; }
+img { max-width: 600px; } 
 
 /* Colors */
 html {
@@ -34,7 +38,6 @@ code, kbd, pre, blockquote {
 }
 pre, blockquote {
     background-color: var(--bg-sec-color);
-    margin: 0;
     padding: 1px 8px;
     border-left: 2px solid var(--visited-color);
 }
