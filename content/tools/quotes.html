@@ -1,0 +1,73 @@
+---
+title: 'Fortune'
+date: 2023-11-27
+summary: Random collected quotes
+---
+<script>
+    function showRandom() {
+        const blocks = document.getElementsByClassName('random');
+        for (let i = 0; i < blocks.length; i++) {
+            const block = blocks[i];
+            const index = Math.floor(block.children.length * Math.random());
+            for (let j = 0; j < block.children.length; j++) {
+                const inner = block.children[j];
+                inner.style = j == index ? "display: block;" : undefined;
+            }
+        }
+        
+    }
+</script>
+<style>
+    .random div { display: none; }
+</style>
+<body onload="showRandom()">
+    <h1>Fortune</h1>
+    <a onclick="showRandom()">Shuffle</a>
+    <div class="random">
+        <div>
+            <blockquote>
+                There's no grays, only white that's got grubby. I'm surprised you don't know that. And sin, young man, is
+                when you
+                treat people like things. Including yourself. That's what sin is.
+                <br><br>
+                When people say things are a lot more complicated than that, they means they're getting worried that they
+                won't like the truth. People as things, that's where it starts.
+            </blockquote>
+            <cite>
+                <a href="https://brer-powerofbabel.blogspot.com/2009/02/granny-weatherwax-on-sin-favorite.html">Granny
+                    Weatherwax</a>, Carpe Jugulum
+            </cite>
+        </div>
+        <div>
+            <blockquote>
+                When you fire that first shot, no matter how right you feel, you have no idea who's going to die!
+                <br><br>
+                You don't know whose children are going to scream and burn!
+                <br><br>
+                How many hearts will be broken! How many lives shattered!
+                <br><br>
+                How much blood will spill until everybody does what they were always going to have to do from the very
+                beginning, sit down and talk!
+            </blockquote>
+            <cite>
+                The Twelfth Doctor, <a href="https://www.youtube.com/watch?v=BJP9o4BEziI">The Zygon Inversion</a>
+            </cite>
+        </div>
+        <div>
+            <blockquote>Pain is a state of mind and I don't mind your pain.</blockquote>
+            <cite>Dhalsim</cite>
+        </div>
+        <div>
+            <blockquote>There is not enough love and goodness in the world to permit giving any of it away to imaginary beings.</blockquote>
+            <cite>Friedrich Nietzsche</cite>
+        </div>
+        <div>
+            <blockquote>Earth provides enough to satisfy every man's need, but not every man's greed.</blockquote>
+            <cite>Gandhi</cite>
+        </div>
+        <div>
+            <blockquote>Strong people don't put others down.<br>They lift them up.</blockquote>
+            <cite>Darth Vader</cite>
+        </div>
+    </div>
+</body>
