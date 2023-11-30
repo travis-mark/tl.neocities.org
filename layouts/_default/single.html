@@ -9,6 +9,13 @@
             <span id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </span>
             | <span id="wordcount"> {{ .WordCount }} Words </span>
         </span>
+        {{ with .GetTerms "tags" }}
+        <span id="tags">
+            {{ range . }}
+            <a href="{{ .RelPermalink }}">#{{ .Title }}</a>
+            {{ end }}
+        </span>
+        {{ end }}
     </div>
     <div>
         <article id="content">
@@ -20,13 +27,6 @@
     <div>
         {{ with .GetTerms "topics" }}
         <ul id="topics">
-            {{ range . }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
-        {{ end }}
-        {{ with .GetTerms "tags" }}
-        <ul id="tags">
             {{ range . }}
             <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
             {{ end }}
