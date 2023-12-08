@@ -4,25 +4,34 @@ date: 2023-11-27
 summary: Random collected quotes
 ---
 <script>
-    function showRandom() {
-        const blocks = document.getElementsByClassName('random');
-        for (let i = 0; i < blocks.length; i++) {
-            const block = blocks[i];
-            const index = Math.floor(block.children.length * Math.random());
-            for (let j = 0; j < block.children.length; j++) {
-                const inner = block.children[j];
-                inner.style = j == index ? "display: block;" : undefined;
-            }
-        }
-        
+    let quoteElements = undefined;
+    let visibleId = -1;
+    function getQuoteElements() {
+        return quoteElements || (quoteElements = document.getElementsByClassName('random')[0]);
     }
+    function getRandomId() {
+        return Math.floor(getQuoteElements().children.length * Math.random());
+    }
+    function showById(id) {
+        const quoteElements = getQuoteElements();
+        const quoteElementsLength = quoteElements.children.length;
+        if (visibleId >= 0) {
+            quoteElements.children[visibleId].style = undefined;
+        }
+        const showId = (id + quoteElementsLength) % quoteElementsLength;
+        quoteElements.children[showId].style = "display: block;";
+        visibleId = showId;
+    }
+    function showPrevious() { showById(visibleId - 1); }
+    function showNext() { showById(visibleId + 1); }
+    function showRandom() { showById(getRandomId()); }
 </script>
 <style>
     .random div { display: none; }
 </style>
 <body onload="showRandom()">
     <h1>Fortune</h1>
-    <a onclick="showRandom()">Shuffle</a>
+    <a onclick="showPrevious()">Previous</a> | <a onclick="showRandom()">Shuffle</a> | <a onclick="showNext()">Next</a>
     <div class="random">
         <div>
             <blockquote>
@@ -34,8 +43,7 @@ summary: Random collected quotes
                 won't like the truth. People as things, that's where it starts.
             </blockquote>
             <cite>
-                <a href="https://brer-powerofbabel.blogspot.com/2009/02/granny-weatherwax-on-sin-favorite.html">Granny
-                    Weatherwax</a>, Carpe Jugulum
+                Granny Weatherwax, <a target="_blank" href="https://brer-powerofbabel.blogspot.com/2009/02/granny-weatherwax-on-sin-favorite.html">Carpe Jugulum</a>
             </cite>
         </div>
         <div>
@@ -50,7 +58,7 @@ summary: Random collected quotes
                 beginning, sit down and talk!
             </blockquote>
             <cite>
-                The Twelfth Doctor, <a href="https://www.youtube.com/watch?v=BJP9o4BEziI">The Zygon Inversion</a>
+                The Twelfth Doctor, <a target="_blank" href="https://www.youtube.com/watch?v=BJP9o4BEziI">The Zygon Inversion</a>
             </cite>
         </div>
         <div>
@@ -68,6 +76,14 @@ summary: Random collected quotes
         <div>
             <blockquote>Strong people don't put others down.<br>They lift them up.</blockquote>
             <cite>Darth Vader</cite>
+        </div>
+        <div>
+            <blockquote>
+                There's no crying in flag design.
+                <br><br>
+                There's just doing better, which you easily can.
+            </blockquote>
+            <cite>CGPGrey, <a target="_blank" href="https://www.youtube.com/watch?v=l4w6808wJcU">Grey Grades State Flags!</a></cite>
         </div>
     </div>
 </body>
