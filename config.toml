@@ -6,6 +6,7 @@ title = 'tl'
   posts = '/:year/:month/:title/'
   links = '/links/:year/:month/:day/:title/'
   tools = '/tools/:title/'
+  pages = '/:title'
 
 [markup]
   [markup.goldmark]
