@@ -7,8 +7,8 @@ Some friends who are aware of Elon's acquistion and destruction of Twitter have 
 
 This [thread about the minor character Red Hair](https://twitter.com/hradzka/status/1611489902570639361) in the Conan the Barbarian movie is a good example:
 
-- Facebook, et. al. are too private
-- YouTube, et. al. force higher production content (videos) taking longer to produce / consume
+- Facebook, et. al. are too private. 
+- YouTube, et. al. force higher production content (videos) taking longer to produce / consume.
 
 This kind of content is valuable, but not valuable enough for independent publishing which bears ongoing costs. But it is a real problem worth solving. Whether it's the right place or not, you will see [research on topics like COVID](https://twitter.com/EricTopol/status/1332771238771630080) and useful [news reporting / analysis](https://twitter.com/NateSilver538) shared through mediums like this until an alternative is viable.
 

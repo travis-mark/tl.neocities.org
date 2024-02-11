@@ -8,7 +8,7 @@ title = 'tl'
   tools = '/tools/:title/'
   pages = '/:title'
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+  extensions.typographer.disable = true
+  renderer.unsafe = true
+      

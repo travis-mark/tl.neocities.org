@@ -22,7 +22,7 @@ Characters are chosen, one at a time, from a pool of three randomly generated op
 There's an arbitary distinction between spotting bison and shooting bison.
 
 # Graphics
-Spacing and alignment are all over the place. The aesthetic is faux-retro, but the result is both blurry *and* over-pixelated. The affect is wildly inconsistent, mixing modern anti-aliased fonts and hard pixeled variations on the same screen. 
+Spacing and alignment are all over the place. The aesthetic is faux-retro, but the result is both blurry *and* over-pixelated. The effect is wildly inconsistent, mixing modern anti-aliased fonts and hard pixeled variations on the same screen. 
 
 # User Interface
 Text editing requires modals. This is a post-keyboard world, Macs just live in it. Shop is confusing. Picking supplies is a math problem. Unwinding over-purchases is challenging. This was a solved problem in the 1990s, you filled out something roughly analogous to an order slip and adjustments were easy.
