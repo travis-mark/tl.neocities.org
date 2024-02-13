@@ -9,6 +9,6 @@ title = 'tl'
   pages = '/:title'
 
 [markup.goldmark]
-  extensions.typographer.disable = true
+  extensions.typographer = false
   renderer.unsafe = true
       
