@@ -1,0 +1,76 @@
+---
+title: 'Score Parser'
+date: 2024-03-13
+summary: Convert iMessage pastes into CSV for analysis
+---
+<script>
+    function parse_empty(input) {
+        const re = /^[ \t\n]/;
+        const match = re.exec(input);
+        if (!match) { return null; }
+        return { type: 'blank', ...match.groups, token: match[0] };
+    }
+    function parse_name(input) {
+        const re = /^([A-Za-z ]+):*\n/;
+        const match = re.exec(input);
+        if (!match) { return null; }
+        const [token, name] = match;
+        if (name) {
+            return { type: 'name', name, token };
+        } else {
+            return null;
+        }
+    }
+    function parse_wordle(input) {
+        const re = /^(?<game>Wordle) (?<game_no>\d+) (?<score>\w)\/6(?<flag>[*]?)\n(?<detail>[⬛🟨⬜🟩\n]+)/;
+        const match = re.exec(input);
+        if (!match) { return null; }
+        const date = new Date('2021-06-19')
+        date.setDate(date.getDate() + parseInt(match.groups.game_no))
+        return { type: 'game', date: date.toISOString().substring(0, 10), ...match.groups, token: match[0]};
+    }
+    function parse_octordle(input) {
+        const re = /^(?<game>[A-Za-z ]*Octordle) #(?<game_no>\d+)\n(?<detail>[1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟🕚🕛🕐\n]+)\nScore[:] (?<score>\d+)/;
+        const match = re.exec(input);
+        if (!match) { return null; }
+        const date = new Date('2022-01-25')
+        date.setDate(date.getDate() + parseInt(match.groups.game_no))
+        return { type: 'game', date: date.toISOString().substring(0, 10), ...match.groups, token: match[0] };
+    }
+    
+    function parse_one(input) {
+        let parsers = [parse_empty, parse_name, parse_wordle, parse_octordle];
+        for (let i = 0; i < parsers.length; i++) {
+            const parser = parsers[i];
+            const token = parser(input);
+            if (token) return token;
+        }
+    }
+    function body_onload() {
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+        input.addEventListener('input', function () {
+            output.innerText = ""
+            let content = input.value;
+            let name = "";
+            while (next = parse_one(content)) {
+                content = content.substring(next.token.length)
+                if (next.type == 'name') { 
+                    name = next.name;
+                }
+                if (next.type == "game") {
+                    output.innerText += `${name}, ${next.game}, ${next.game_no}, ${next.date ?? 'XXXX-XX-XX'}, ${next.score}, ${next.detail.replaceAll('\n', ' ')}, ${next.flag ?? ''}` + "\n"
+                }
+            }
+        });
+    }
+</script>
+<body onload="body_onload()">
+    <h1>Score Parser</h1>
+    <p>Extracting content from iMessage is terrible. I wrote this to rip wordle scores to CSV.</p>
+    <p>Paste iMessage text here:</p>
+    <textarea id="input">
+    </textarea>
+    <p>Output:</p>
+    <pre id="output"></pre>
+</body>

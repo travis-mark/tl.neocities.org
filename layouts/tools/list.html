@@ -1,5 +1,5 @@
 {{ define "main" }}
-    {{ range where .Site.RegularPages "Section" "tools" }}
+    {{ range (where .Site.RegularPages "Section" "tools").ByTitle }}
     <article>
         <a href="{{.Permalink}}">{{ .Title }}</a> - 
         {{ .Summary }}
