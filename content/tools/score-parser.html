@@ -22,12 +22,13 @@ summary: Convert iMessage pastes into CSV for analysis
         }
     }
     function parse_wordle(input) {
-        const re = /^(?<game>Wordle) (?<game_no>\d+) (?<score>\w)\/6(?<flag>[*]?)\n(?<detail>[⬛🟨⬜🟩\n]+)/;
+        const re = /^(?<game>Wordle) (?<game_no>[0-9,]+)[ 🎉]* (?<score>\w)\/6(?<flag>[*]?)\n(?<detail>[⬛🟨⬜🟩\n]+)/;
         const match = re.exec(input);
         if (!match) { return null; }
+        const game_no = parseInt(match.groups.game_no.replaceAll(",", ""));
         const date = new Date('2021-06-19')
-        date.setDate(date.getDate() + parseInt(match.groups.game_no))
-        return { type: 'game', date: date.toISOString().substring(0, 10), ...match.groups, token: match[0]};
+        date.setDate(date.getDate() + game_no)
+        return { type: 'game', date: date.toISOString().substring(0, 10), ...match.groups, game_no, token: match[0]};
     }
     function parse_octordle(input) {
         const re = /^(?<game>[A-Za-z ]*Octordle) #(?<game_no>\d+)\n(?<detail>[1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟🕚🕛🕐\n]+)\nScore[:] (?<score>\d+)/;
