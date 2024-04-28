@@ -1,0 +1,122 @@
+---
+title: 'Mythic or Not'
+date: 2024-04-27
+summary: What are the odds of reaching Mythic this month?
+---
+<script>
+    const tiers = ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Mythic'];
+    const ranks = ['Rank 4', 'Rank 3', 'Rank 2', 'Rank 1'];
+    const pips = ['', '•', '••', '•••', '••••', '•••••'];
+    const platinum = 3
+    const mythic = 5
+
+    let tier = 0;
+    let rank = 0;
+    let pip = 0;
+    let wins = 0;
+    let losses = 0;
+
+    function updateListing() {
+        let d_tier = document.getElementById('tier');
+        let d_rank = document.getElementById('rank');
+        let d_pips = document.getElementById('pips');
+        let d_stat = document.getElementById('stat');
+
+
+        d_tier.innerText = tiers[tier];
+        d_rank.innerText = tier != 5 ? ranks[rank] : '';
+        d_pips.innerText = tier != 5 ? pips[pip] : '';
+
+        const needed = winsNeeded();
+        if (wins == 0 && losses == 0) {
+            d_stat.innerText = `Wins to Mythic: ${needed}`;
+        } else {
+            const rate = wins/(wins+losses);
+            d_stat.innerText = `Record: ${wins}-${losses} (${(100*rate).toFixed(1)}%) Wins to Mythic: ${needed} Estimated Games: ${Math.ceil(needed/rate)}`;
+        }
+        
+    }
+
+    function onWin() {
+        wins += 1;
+        if (tier != mythic) {
+            if (tier < platinum) { // Double pip before platinum
+                pip += 2; 
+            } else {
+                pip += 1; 
+            }
+            if (pip >= pips.length) {
+                rank += 1;
+                pip -= pips.length;
+            }
+            if (rank >= ranks.length) {
+                tier += 1;
+                rank = 0;
+                pip = 0;
+            }
+        }
+        saveState();
+        updateListing();
+    }
+
+    function onLoss() {
+        losses += 1;
+        if (tier != mythic) {
+            if (rank != 0 && pip != 0) { // Bottom of tier, no loss
+                pip -= 1; 
+            }
+            if (pip < 0) {
+                rank -= 1;
+                pip = pips.length - 1;
+            }
+        }
+        saveState();
+        updateListing();
+    }
+
+    function winsNeeded() {
+        const winsAfterPlat4 = 48;
+        if (tier < platinum) {
+            return winsAfterPlat4 + (platinum - 1 - tier) * 12 + (4 - rank) * 3 - Math.floor(pip / 2);
+        } else {
+            return winsAfterPlat4 - (tier - platinum) * 24 - rank * 6 - pip;
+        }
+    }
+
+    function loadState() {
+        if (window.localStorage) {
+            tier = parseInt(window.localStorage.getItem('tier') ?? 0);
+            rank = parseInt(window.localStorage.getItem('rank') ?? 0);
+            pip = parseInt(window.localStorage.getItem('pip') ?? 0);
+            wins = parseInt(window.localStorage.getItem('wins') ?? 0);
+            losses = parseInt(window.localStorage.getItem('losses') ?? 0);
+        }
+    }
+
+    function saveState() {
+        if (window.localStorage) {
+            window.localStorage.setItem('tier', tier);
+            window.localStorage.setItem('rank', rank);
+            window.localStorage.setItem('pip', pip);
+            window.localStorage.setItem('wins', pip);
+            window.localStorage.setItem('losses', pip);
+        }
+    }
+
+    function body_onload() {
+        loadState();
+        updateListing();
+    }
+</script>
+<style>
+    .mh32 { min-height: 32px; }
+</style>
+<body onload="body_onload()">
+    <h1>Mythic or Not</h1>
+    <div id='tier' class='mh32'></div>
+    <div id='rank' class='mh32'></div>
+    <div id='pips' class='mh32'></div>
+    <button onclick="onWin();">Win</button>
+    <button onclick="onLoss();">Loss</button>
+    <div id='stat' class='mh32'></div>
+</body>
