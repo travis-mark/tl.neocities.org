@@ -1,6 +1,7 @@
 ---
 title: 'Dungeon Crawl'
 date: 2024-08-30
+tags: games
 ---
 
 ## Warning

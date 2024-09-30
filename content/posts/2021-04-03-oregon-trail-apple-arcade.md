@@ -1,6 +1,7 @@
 ---
 title: "Oregon Trail (Apple Arcade Version)"
 date: 2021-04-03
+tags: [apple, games]
 ---
 
 *Do yourself a favor, download an emulator and play the Windows or Mac version from the 1990's. Read on if you want a rant about an unpolished trainwreck.*
@@ -27,7 +28,7 @@ Spacing and alignment are all over the place. The aesthetic is faux-retro, but t
 # User Interface
 Text editing requires modals. This is a post-keyboard world, Macs just live in it. Shop is confusing. Picking supplies is a math problem. Unwinding over-purchases is challenging. This was a solved problem in the 1990s, you filled out something roughly analogous to an order slip and adjustments were easy.
 
-Overuse (read: use) of transitions and cutscenes slows eveything down. This is great if you're catering to modern norms or wants more time played, less so when re-imagining a classic.
+Overuse (read: use) of transitions and cutscenes slows eveything down. This is great if you're catering to modern norms or want a gameplay to take longer for some reason. It's less helpful when re-imagining a classic.
 
 The wagon's inventory management is a charming throwback made frustrating with repetitive additional clicks to perform repairs or use items.
 

@@ -3,6 +3,8 @@ html {
     --bg-color: rgb(29, 31, 32);
     --bg-sec-color: rgb(44, 49, 53);
     --fg-color: rgb(255, 255, 255);
+    --fg-sec-color: rgb(187, 151, 44);
+    --fg-gray-color: rgb(123, 122, 117);
     --active-color: rgb(255, 215, 0);
     --hover-color: var(--fg-color);
     --visited-color: rgb(218, 165, 32);
@@ -14,21 +16,34 @@ html {
 a { color: var(--active-color); }
 a:hover { color: var(--hover-color); }
 a:visited { color: var(--visited-color); }
-code, kbd, pre, blockquote { background-color: var(--bg-sec-color); }
+aside, code, kbd, pre, blockquote { background-color: var(--bg-sec-color); }
 
 /* Font styles */
-body { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; }
-.title { font-size: 25px; font-weight: 400; }
-h1 { font-size: 19px; font-weight: 400; }
-h2 { font-size: 17px; font-weight: 400; }
-h3, h4, h5, h6 { font-size: 14px; font-weight: 700; }
-code, kbd, pre, blockquote { font-family: 'Berkeley Mono', monospace; font-size: 13px; }
+* { font-family: 'Inter', sans-serif; }
+header, .headline { font-size: 28px; }
+header a { text-decoration: none; }
+.caption { color: var(--fg-sec-color); }
+.caption2 { color: var(--fg-gray-color); }
+.title { font-size: 34px; }
+h1 { font-size: 28px; }
+h2 { font-size: 22px; }
+h3, h4, h5, h6 { font-size: 20px; }
+body { font-size: 17px; }
+code, kbd, pre, blockquote { font-family: monospace; font-size: 17px; }
+aside { font-size: 16px; }
 
 /* Layout / Spacing */
-body { max-width: 600px; word-wrap: break-word; }
-h1, h2, h3, h4, h5, h6, p, blockquote { margin: 8px 0; }
-img { max-width: 600px; } 
+body { max-width: 80ch; word-wrap: break-word; }
+aside { padding: 8px; }
+header, aside, h1, h2, h3, h4, h5, h6, p, blockquote { margin: 16px 0; }
+img { max-width: 72ch; } 
 pre, blockquote {
     padding: 1px 8px;
     border-left: 2px solid var(--visited-color);
+}
+.date { width: 11ch; }
+
+/* Phone(-ish) hacks */
+@media (max-width: 600px) {
+    aside { display: none; }
 }

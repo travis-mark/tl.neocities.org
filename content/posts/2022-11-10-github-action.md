@@ -1,6 +1,7 @@
 ---
 title: "Github Actions"
 date: 2022-11-10T16:40:01-05:00
+tags: meta
 ---
 
 It's a little excessive for this site, but researching various automation options led me to glue a Hugo CLI install and build template provided by GitHub to a
