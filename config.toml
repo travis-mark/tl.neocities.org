@@ -1,14 +1,50 @@
 baseURL = 'http://tl.neocities.org/'
+defaultcontentlanguage = "en"
 languageCode = 'en-us'
-title = 'tl'
-
-[permalinks]
-  posts = '/:year/:month/:title/'
-  links = '/links/:year/:month/:day/:title/'
-  tools = '/tools/:title/'
-  pages = '/:title'
+theme = "hugo-coder"
+title = 'Travis Luckenbaugh'
 
 [markup.goldmark]
   extensions.typographer = false
   renderer.unsafe = true
-      
+
+[markup.highlight]
+  style = "github-dark"
+
+[permalinks]
+  pages = '/:title'
+  posts = '/:year/:month/:title/'
+  tools = '/tools/:title/'
+
+[params]
+  author = "Travis Luckenbaugh"
+  avatarurl = "headache.png"
+  colorScheme = "auto"
+  favicon_32 = "/ff4.jpg"
+  since = 2020
+
+[[params.social]]
+  name = "Github"
+  url = "https://github.com/travis-mark/"
+  weight = 1
+
+[[params.social]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/travis-luckenbaugh-4577a518/"
+  weight = 2
+
+[[params.social]]
+  name = "RSS"
+  type = "application/rss+xml"
+  url = "/index.xml"
+  weight = 3
+
+[[menu.main]]
+  name = "Posts"
+  weight = 1
+  url  = "posts/"
+
+[[menu.main]]
+  name = "Resume"
+  weight = 2
+  url = "/resume.pdf"
