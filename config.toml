@@ -18,6 +18,7 @@ title = 'Travis Luckenbaugh'
 
 [params]
   author = "Travis Luckenbaugh"
+  info = "From Machine Code to Mobile Apps"
   avatarurl = "headache.png"
   colorScheme = "auto"
   favicon_32 = "/ff4.jpg"
