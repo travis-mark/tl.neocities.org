@@ -1,7 +1,7 @@
 ---
 title: 'Clipboard Monitor: Some Assembly Required'
 date: 2024-12-28
-tags: games
+tags: tech
 ---
 
 ## Some Assembly Required, Batteries Never Included

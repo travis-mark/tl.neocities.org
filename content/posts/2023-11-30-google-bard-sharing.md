@@ -1,7 +1,7 @@
 ---
 title: 'Google Bard Missing Feature: Sharing'
 date: 2023-11-30
-tags: google
+tags: tech
 ---
 
 TL:DR - Google removed a feature because Google couldn't respect Google's privacy. 

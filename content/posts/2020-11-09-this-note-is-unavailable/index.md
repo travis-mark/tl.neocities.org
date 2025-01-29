@@ -1,7 +1,7 @@
 ---
-title: "This Note Is Unavailable"
+title: "Apple Notes: This Note Is Unavailable"
 date: 2020-11-09
-tags: apple
+tags: tech
 ---
 
 It’s my fucking note Apple. I just want to link to it. On my computer. With a real link that opens a real program. Not one that punts to a browser tab that soft-locks the entire browser because an unnecessary request for TouchID took precedent over: the system, the running application and user input.

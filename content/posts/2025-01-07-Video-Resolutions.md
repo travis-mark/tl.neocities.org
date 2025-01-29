@@ -1,7 +1,7 @@
 ---
 title: 'The Black & White Mac'
 date: 2025-01-07
-tags: apple
+tags: tech
 ---
 
 The 1984 Macintosh's black and white display stands out as a curious decision. The full history of personal computing is complicated. Here are some notes.

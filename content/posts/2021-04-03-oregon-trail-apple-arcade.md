@@ -1,7 +1,7 @@
 ---
 title: "Oregon Trail (Apple Arcade Version)"
 date: 2021-04-03
-tags: [apple, games]
+tags: [tech, games]
 ---
 
 *Do yourself a favor, download an emulator and play the Windows or Mac version from the 1990's. Read on if you want a rant about an unpolished trainwreck.*
