@@ -41,6 +41,11 @@ title = 'Travis Luckenbaugh'
   weight = 3
 
 [[menu.main]]
+  name = "Links"
+  weight = 1
+  url  = "links/"
+
+[[menu.main]]
   name = "Posts"
   weight = 1
   url  = "posts/"

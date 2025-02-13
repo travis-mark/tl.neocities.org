@@ -3,8 +3,6 @@ title: "Links"
 date: 2024-02-10
 ---
 
-# Links
-
 This is a collection of wisdom I wish I had sooner. John Walker's passing convinced me to compose this list.
 
 - [The Hacker's Diet](https://www.fourmilab.ch/hackdiet/) by John Walker gave me the confidence to lose weight and showed me the value of simple tracking systems you can setup in minutes.
