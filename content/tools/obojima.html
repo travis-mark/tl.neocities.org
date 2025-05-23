@@ -1,0 +1,112 @@
+---
+title: "Obojima: Initiate Creator"
+date: 2025-05-23
+---
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+    .stat { display: flex; flex-direction: column; gap: 10px; }
+    .stat-row { display: flex; flex-direction: row; }
+    .stat-name { width: 12ch; }
+    button {
+        border: 2px solid #8b7355;
+        background: linear-gradient(135deg, #4a4038 0%, #3a3028 100%);
+        color: #d4af37;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 
+            inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+            inset -1px -1px 2px rgba(0, 0, 0, 0.3),
+            0 2px 4px rgba(0, 0, 0, 0.3);
+
+    }
+    .stat-minus button, .stat-plus button {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        
+    }
+    .stat-value { color: #d4af37; font-weight: bold; min-width: 30px; text-align: center; }
+</style>
+<body>
+    <p>Ability Points: <span id="points">--</span></p>
+
+    <div class="stat">
+        <div class="stat-row">
+            <div class="stat-name">Strength</div>
+            <div class="stat-minus"><button onclick="decrement('strength')">-</button></div>
+            <div class="stat-value"><span id="strength">8</span></div>
+            <div class="stat-plus"><button onclick="increment('strength')">+</button></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-name">Dexterity</div>
+            <div class="stat-minus"><button onclick="decrement('dexterity')">-</button></div>
+            <div class="stat-value"><span id="dexterity">8</span></div>
+            <div class="stat-plus"><button onclick="increment('dexterity')">+</button></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-name">Constitution</div>
+            <div class="stat-minus"><button onclick="decrement('constitution')">-</button></div>
+            <div class="stat-value"><span id="constitution">8</span></div>
+            <div class="stat-plus"><button onclick="increment('constitution')">+</button></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-name">Wisdom</div>
+            <div class="stat-minus"><button onclick="decrement('wisdom')">-</button></div>
+            <div class="stat-value"><span id="wisdom">8</span></div>
+            <div class="stat-plus"><button onclick="increment('wisdom')">+</button></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-name">Intellect</div>
+            <div class="stat-minus"><button onclick="decrement('intellect')">-</button></div>
+            <div class="stat-value"><span id="intellect">8</span></div>
+            <div class="stat-plus"><button onclick="increment('intellect')">+</button></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-name">Charisma</div>
+            <div class="stat-minus"><button onclick="decrement('charisma')">-</button></div>
+            <div class="stat-value"><span id="charisma">8</span></div>
+            <div class="stat-plus"><button onclick="increment('charisma')">+</button></div>
+        </div>
+    </div>
+
+    <p><button onclick="clear()">Clear</button></p>
+</body>
+<script>
+    var points = 12;
+    var locals = { strength: 8, dexterity: 8, constitution: 8, wisdom: 8, intellect: 8, charisma: 8 };
+    var costs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 7, 9];
+    function decrement(stat) {
+        if (locals[stat] <= 0) { return; }
+        locals[stat] -= 1;
+        render();
+    }
+    function increment(stat) {
+        if (locals[stat] + 1 >= costs.length) { return; }
+        if (total_cost({...locals, [stat]: locals[stat] + 1}) > points) { return; }
+        locals[stat] += 1;
+        render();
+    }
+    function total_cost(stats) {
+        return costs[stats.strength] + costs[stats.dexterity] + costs[stats.constitution] + costs[stats.wisdom] + costs[stats.intellect] + costs[stats.charisma];
+    }
+    function clear() {
+        locals = { strength: 8, dexterity: 8, constitution: 8, wisdom: 8, intellect: 8, charisma: 8 };
+        render();
+    }
+    function render() {
+        document.getElementById("points").innerText = points - total_cost(locals);
+        document.getElementById("strength").innerText = locals.strength;
+        document.getElementById("dexterity").innerText = locals.dexterity;
+        document.getElementById("constitution").innerText = locals.constitution;
+        document.getElementById("wisdom").innerText = locals.wisdom;
+        document.getElementById("intellect").innerText = locals.intellect;
+        document.getElementById("charisma").innerText = locals.charisma;
+    }
+    render();
+</script>
