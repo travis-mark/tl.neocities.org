@@ -1,40 +1,35 @@
----
-title: "Obojima: Initiate Creator"
-date: 2025-05-23
----
+<head>
+    <title>5E Character Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+</head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
+    * {
+        color: rgb(255, 215, 0);
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+    }
+    body {
+        background: linear-gradient(135deg, rgb(29, 31, 32) 0%, rgb(44, 49, 53) 100%);
+    }
+    p, p * { font-size: 21px; }
+    #points { font-size: 21px; font-weight: bold; }
     .stat { display: flex; flex-direction: column; gap: 10px; }
-    .stat-row { display: flex; flex-direction: row; }
+    .stat-header,
+    .stat-row { display: flex; flex-direction: row; align-items: center; }
     .stat-name { width: 12ch; }
     button {
-        border: 2px solid #8b7355;
+        border: 2px solid rgb(255, 215, 0);
         background: linear-gradient(135deg, #4a4038 0%, #3a3028 100%);
-        color: #d4af37;
-        font-size: 18px;
         font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         cursor: pointer;
-        transition: all 0.2s ease;
-        box-shadow: 
-            inset 1px 1px 2px rgba(255, 255, 255, 0.1),
-            inset -1px -1px 2px rgba(0, 0, 0, 0.3),
-            0 2px 4px rgba(0, 0, 0, 0.3);
-
     }
-    .stat-minus button, .stat-plus button {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        
-    }
-    .stat-value { color: #d4af37; font-weight: bold; min-width: 30px; text-align: center; }
+    .stat-minus button, 
+    .stat-plus button {  width: 32px; height: 32px; border-radius: 50%; }
+    .stat-value { font-weight: bold; min-width: 30px; text-align: center; }
 </style>
 <body>
-    <p>Ability Points: <span id="points">--</span></p>
+    <p>Ability Points Spent: <span id="points">0</span></p>
 
     <div class="stat">
         <div class="stat-row">
@@ -75,10 +70,9 @@ date: 2025-05-23
         </div>
     </div>
 
-    <p><button onclick="clear()">Clear</button></p>
+    <p><button onclick="reset()">Clear</button></p>
 </body>
 <script>
-    var points = 12;
     var locals = { strength: 8, dexterity: 8, constitution: 8, wisdom: 8, intellect: 8, charisma: 8 };
     var costs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 7, 9];
     function decrement(stat) {
@@ -95,12 +89,12 @@ date: 2025-05-23
     function total_cost(stats) {
         return costs[stats.strength] + costs[stats.dexterity] + costs[stats.constitution] + costs[stats.wisdom] + costs[stats.intellect] + costs[stats.charisma];
     }
-    function clear() {
+    function reset() {
         locals = { strength: 8, dexterity: 8, constitution: 8, wisdom: 8, intellect: 8, charisma: 8 };
         render();
     }
     function render() {
-        document.getElementById("points").innerText = points - total_cost(locals);
+        document.getElementById("points").innerText = total_cost(locals);
         document.getElementById("strength").innerText = locals.strength;
         document.getElementById("dexterity").innerText = locals.dexterity;
         document.getElementById("constitution").innerText = locals.constitution;
