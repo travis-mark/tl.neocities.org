@@ -6,6 +6,8 @@ tags: tech
 
 [Grok-3](https://x.ai/blog/grok-3), xAI's competitor to ChatGPT, Claude and friends hit early preview last week, and the internet has thoughts. Normally, I rely on people like [Zvi Mowshowitz](https://thezvi.substack.com/p/grok-grok) to stay up to date on these releases.
 
+<!--more-->
+
 Zvi's posts range from decent to very good, but at 45 pages, it would benefit from a better summary. I decided to do it myself, if only to "digest" the article. The [full post](https://thezvi.substack.com/p/grok-grok) is worth a skim, if only to understand the quality (Twitter posts from subject matter experts) and quantity (a lot) of sources. The summary is a little bit drier than the original version. Hopefully, it is useful to someone. Grok 3 seemed to like it. 
 
 ## xAI's ROI on Grok 3

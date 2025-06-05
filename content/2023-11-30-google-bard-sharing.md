@@ -8,6 +8,8 @@ TL:DR - Google removed a feature because Google couldn't respect Google's privac
 
 Stay classy, Google.
 
+<!--more-->
+
 ## Chat with Bard
 
 How do I share a Bard chat?

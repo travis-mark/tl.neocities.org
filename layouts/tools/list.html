@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tools - {{ .Site.Title }}</title>
+    <link rel="icon" type="image/jpeg" href="/ff4.jpg">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">← Back to Home</a>
+        </nav>
+
+        <h1>Tools</h1>
+
+        {{ if .Content }}
+        <div class="intro">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        <!-- All Pages with Full Details -->
+        {{ $toolPages := where .Site.RegularPages "Section" "tools" }}
+        {{ if $toolPages }}
+        <div class="archive-list">
+            {{ range $toolPages }}
+                <article class="archive-item">
+                    <div class="archive-row">
+                        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                        {{ if .Date }}
+                        <div class="page-date">{{ .Date.Format "January 2, 2006" }}</div>
+                        {{ end }}
+                    </div>
+                    <div class="archive-summary">
+                        {{ .Summary }}
+                    </div>
+                </article>
+            {{ end }}
+        </div>
+        {{ else }}
+        <p>No items found.</p>
+        {{ end }}
+    </div>
+</body>
+</html>

@@ -6,6 +6,8 @@ tags: [tech, games]
 
 *Do yourself a favor, download an emulator and play the Windows or Mac version from the 1990's. Read on if you want a rant about an unpolished trainwreck.*
 
+<!--more-->
+
 # Major Issues
 Quitting the game while in Matt's shop causes the app to lockup on re-launch. Literally un-playable. 
 

@@ -4,9 +4,9 @@ date: 2024-12-28
 tags: tech
 ---
 
-## Some Assembly Required, Batteries Never Included
-
 My wife, my best friend and I are in a group chat where we post daily puzzle scores. Occasionally, I'll put together a graph or logger. Because it's a fairly bounded exercise, I use it to evaluate programming languages, frameworks or approaches. This time, I'm taking the pulse on current LLMs' ability to solve the problem, rather than the solution itself.
+
+<!--more-->
 
 ### The Wordle Monitor
 

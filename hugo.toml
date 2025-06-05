@@ -1,0 +1,15 @@
+baseURL = 'http://tl.neocities.org/'
+languageCode = 'en-us'
+title = 'Travis Luckenbaugh'
+
+[permalinks]
+  pages = '/:title'
+  posts = '/:year/:month/:title/'
+  tools = '/tools/:title/'
+
+[markup.goldmark]
+  extensions.typographer = false
+  renderer.unsafe = true
+
+[markup.highlight]
+  style = "github-dark"

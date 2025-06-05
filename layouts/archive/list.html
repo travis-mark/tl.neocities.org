@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Archive - {{ .Site.Title }}</title>
+    <link rel="icon" type="image/jpeg" href="/ff4.jpg">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">← Back to Home</a>
+        </nav>
+
+        <h1>Archive</h1>
+
+        {{ if .Content }}
+        <div class="intro">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        <!-- All Pages with Full Details -->
+        {{ $archivePages := where .Site.RegularPages "Section" "!=" "tools" }}
+        {{ $archivePages = where $archivePages "Params.excludeFromArchive" "!=" true }}
+        {{ if $archivePages }}
+        <div class="archive-count">
+            <p>{{ len $archivePages }} posts total</p>
+        </div>
+
+        <div class="archive-list">
+            {{ range $archivePages }}
+                <article class="archive-item">
+                    <div class="archive-row">
+                        <h3><a href="{{ .RelPermalink }}">{{ .Title }} {{ .Section }}</a></h3>
+                        {{ if .Date }}
+                        <div class="page-date">{{ .Date.Format "January 2, 2006" }}</div>
+                        {{ end }}
+                    </div>
+                </article>
+            {{ end }}
+        </div>
+        {{ else }}
+        <p>No posts found.</p>
+        {{ end }}
+    </div>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 ---
 title: "Sample"
 date: 2023-11-15
-tags: meta
+excludeFromArchive: true
 ---
 
 # Heading 1

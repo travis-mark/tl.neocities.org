@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }}</title>
+    <link rel="icon" type="image/jpeg" href="/ff4.jpg">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ .Site.Title }}</h1>
+        <nav>
+            <a href="/archive/">Archive</a>
+            |
+            <a href="/links/">Links</a>  
+            |
+            <a href="/tools/">Tools</a>
+        </nav>
+        {{ if .Content }}
+        <div class="intro">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        <!-- Featured/Recent Posts -->
+        {{ $recentPages := first 5 .Site.RegularPages }}
+        {{ if $recentPages }}
+        <h2>Recent Posts</h2>
+        <div class="page-list">
+            {{ range $recentPages }}
+            <article class="page-item">
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                {{ if .Date }}
+                <div class="page-meta">{{ .Date.Format "January 2, 2006" }}</div>
+                {{ end }}
+                {{ if .Summary }}
+                <div class="page-summary">{{ .Summary }}</div>
+                {{ end }}
+                <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+            </article>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</body>
+
+</html>

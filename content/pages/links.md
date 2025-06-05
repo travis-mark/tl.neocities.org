@@ -1,6 +1,7 @@
 ---
 title: "Links"
 date: 2024-02-10
+excludeFromArchive: true
 ---
 
 This is a collection of wisdom I wish I had sooner. John Walker's passing convinced me to compose this list.

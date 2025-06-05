@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <link rel="icon" type="image/jpeg" href="/ff4.jpg">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav style="margin-bottom: 2rem;">
+            <a href="/" style="color: #f1c40f; text-decoration: none; font-weight: 500;">← Back to Home</a>
+        </nav>
+
+        <!-- Article Header -->
+        <article>
+
+
+            <!-- Article Content -->
+            <div style="font-size: 1.1rem; line-height: 1.7;">
+                {{ .Content }}
+            </div>
+
+            <!-- Article Footer -->
+            <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <!-- Navigation to other posts -->
+                <div
+                    style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+                    {{ with .PrevInSection }}
+                    <div style="text-align: left;">
+                        <div style="color: #999; font-size: 0.9rem;">Previous</div>
+                        <a href="{{ .RelPermalink }}" style="color: #f1c40f; text-decoration: none; font-weight: 500;">{{
+                            .Title }}</a>
+                    </div>
+                    {{ end }}
+
+                    {{ with .NextInSection }}
+                    <div style="text-align: right;">
+                        <div style="color: #999; font-size: 0.9rem;">Next</div>
+                        <a href="{{ .RelPermalink }}" style="color: #f1c40f; text-decoration: none; font-weight: 500;">{{
+                            .Title }}</a>
+                    </div>
+                    {{ end }}
+                </div>
+            </footer>
+        </article>
+
+        <!-- Related Posts -->
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ with $related }}
+        <section style="margin-top: 3rem;">
+            <h2 style="color: #d0d0d0; margin-bottom: 1rem;">Related Posts</h2>
+            <div style="display: grid; gap: 1rem;">
+                {{ range . }}
+                <div
+                    style="background: #2a2a2a; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                    <h3 style="margin-bottom: 0.5rem;">
+                        <a href="{{ .Permalink }}" style="color: #f0f0f0; text-decoration: none;">{{ .Title }}</a>
+                    </h3>
+                    {{ with .Date }}
+                    <div style="color: #999; font-size: 0.9rem; margin-bottom: 0.5rem;">{{ .Format "January 2, 2006" }}
+                    </div>
+                    {{ end }}
+                    {{ with .Summary }}
+                    <p style="color: #ccc; font-size: 0.95rem;">{{ . }}</p>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
+    </div>
+
+    <style>
+        /* Additional styles for content formatting */
+        .container h2,
+        .container h3,
+        .container h4,
+        .container h5,
+        .container h6 {
+            color: #d0d0d0;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .container p {
+            margin-bottom: 1rem;
+        }
+
+        .container a {
+            color: #f1c40f;
+            text-decoration: underline;
+        }
+
+        .container a:hover {
+            text-decoration: none;
+        }
+
+        .container blockquote {
+            border-left: 4px solid #f1c40f;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #ccc;
+        }
+
+        .container code {
+            background: #2a2a2a;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .container pre {
+            background: #2a2a2a;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .container pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .container ul,
+        .container ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container li {
+            margin-bottom: 0.5rem;
+        }
+
+        .container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .container th,
+        .container td {
+            border: 1px solid #444;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .container th {
+            background: #2a2a2a;
+            font-weight: 600;
+        }
+
+        .container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem 0.5rem;
+            }
+
+            div[style*="display: flex"] {
+                flex-direction: column;
+            }
+
+            div[style*="text-align: right"] {
+                text-align: left !important;
+            }
+        }
+    </style>
+</body>
+
+</html>

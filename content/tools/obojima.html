@@ -1,6 +1,13 @@
+---
+title: '5E Character Creator'
+date: 2025-05-23
+summary: Level 0 supported ability score character creator for Obojima
+---
 <head>
-    <title>5E Character Creator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpeg" href="/ff4.jpg">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <style>
@@ -9,9 +16,8 @@
         font-family: 'Inter', sans-serif;
         font-size: 18px;
     }
-    body {
-        background: linear-gradient(135deg, rgb(29, 31, 32) 0%, rgb(44, 49, 53) 100%);
-    }
+
+    p { color: #DDD; }
     p, p * { font-size: 21px; }
     #points { font-size: 21px; font-weight: bold; }
     .stat { display: flex; flex-direction: column; gap: 10px; }
@@ -29,6 +35,9 @@
     .stat-value { font-weight: bold; min-width: 30px; text-align: center; }
 </style>
 <body>
+    <h1>5E Character Creator</h1>
+    <p>This is a hacked together tool to count up points, rather than counting down from 27. I wrote it for a friend's Obojima campaign with 0th level 12-point characters.</p>
+
     <p>Ability Points Spent: <span id="points">0</span></p>
 
     <div class="stat">
@@ -70,7 +79,9 @@
         </div>
     </div>
 
-    <p><button onclick="reset()">Clear</button></p>
+    <p style="margin-top: 20px;">
+        <button style="padding: 4px;" onclick="reset()">Clear</button>
+    </p>
 </body>
 <script>
     var locals = { strength: 8, dexterity: 8, constitution: 8, wisdom: 8, intellect: 8, charisma: 8 };
