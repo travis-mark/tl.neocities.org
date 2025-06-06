@@ -26,7 +26,7 @@
         {{ end }}
 
         <!-- Featured/Recent Posts -->
-        {{ $recentPages := first 5 .Site.RegularPages }}
+        {{ $recentPages := first 5 (where .Site.RegularPages "Draft" false) }}
         {{ if $recentPages }}
         <h2>Recent Posts</h2>
         <div class="page-list">

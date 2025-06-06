@@ -224,3 +224,37 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
+
+/* Print styles */
+
+@media print {
+    * {
+        color: black !important;
+        background: white !important;   
+    }
+
+    /* Hide navigation and non-essential elements */
+    nav, .menu, footer, .sidebar, .breadcrumb {
+        display: none !important;
+    }
+
+    body {
+        font-family: "Helvetica Neue", "Times New Roman", serif !important; 
+        font-size: 11pt !important;
+        line-height: 1 !important;
+    
+    }
+
+    h1 { 
+        font-family: "Helvetica Neue", "Times New Roman", serif !important;
+        font-size: 14pt !important;
+        margin-bottom: 2px;
+    }
+
+    h2 {
+        font-family: "Helvetica Neue", "Times New Roman", serif !important;
+        font-size: 10pt !important;
+        font-weight: bold !important;
+        margin-bottom: 1px;
+    }
+}
