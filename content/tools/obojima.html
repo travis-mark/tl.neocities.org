@@ -16,9 +16,7 @@ summary: Level 0 supported ability score character creator for Obojima
         font-family: 'Inter', sans-serif;
         font-size: 18px;
     }
-
-    p { color: #DDD; }
-    p, p * { font-size: 21px; }
+    p, p * { color: #DDD; font-size: 21px; }
     #points { font-size: 21px; font-weight: bold; }
     .stat { display: flex; flex-direction: column; gap: 10px; }
     .stat-header,
@@ -36,7 +34,6 @@ summary: Level 0 supported ability score character creator for Obojima
 </style>
 <body>
     <h1>5E Character Creator</h1>
-    <p>This is a hacked together tool to count up points, rather than counting down from 27. I wrote it for a friend's Obojima campaign with 0th level 12-point characters.</p>
 
     <p>Ability Points Spent: <span id="points">0</span></p>
 
@@ -85,9 +82,9 @@ summary: Level 0 supported ability score character creator for Obojima
 </body>
 <script>
     var locals = { strength: 8, dexterity: 8, constitution: 8, wisdom: 8, intellect: 8, charisma: 8 };
-    var costs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 7, 9];
+    var costs = [0, -9, -7, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 7, 9, 11, 13, 15];
     function decrement(stat) {
-        if (locals[stat] <= 0) { return; }
+        if (locals[stat] <= 1) { return; }
         locals[stat] -= 1;
         render();
     }

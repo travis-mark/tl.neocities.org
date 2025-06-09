@@ -1,5 +1,6 @@
 ---
 title: "Primer"
+excludeFromArchive: true
 ---
 
 > This content is originally from the <a href="https://www.dndbeyond.com/sources/dnd/dmg-2024/greyhawk" target="_blank">2024 Dungeon Master's Guide</a>.

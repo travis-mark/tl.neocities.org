@@ -26,11 +26,13 @@
         {{ end }}
 
         <!-- Featured/Recent Posts -->
-        {{ $recentPages := first 5 (where .Site.RegularPages "Draft" false) }}
-        {{ if $recentPages }}
+        {{ $allPages := where .Site.RegularPages "Section" "==" "posts" }}
+        {{ $pubPages := where $allPages "Draft" false }}
+        {{ $newPages := first 5 $pubPages }}
+        {{ if $newPages }}
         <h2>Recent Posts</h2>
         <div class="page-list">
-            {{ range $recentPages }}
+            {{ range $newPages }}
             <article class="page-item">
                 <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
                 {{ if .Date }}
