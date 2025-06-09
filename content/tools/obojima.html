@@ -1,11 +1,11 @@
 ---
 title: '5E Character Creator'
 date: 2025-05-23
-summary: Level 0 supported ability score character creator for Obojima
+summary: Character creator with support for extended point buy
 ---
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="icon" type="image/jpeg" href="/ff4.jpg">
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -16,6 +16,8 @@ summary: Level 0 supported ability score character creator for Obojima
         font-family: 'Inter', sans-serif;
         font-size: 18px;
     }
+    html { touch-action: manipulation; }
+    html, body { height: 100%; overflow: hidden; }
     p, p * { color: #DDD; font-size: 21px; }
     #points { font-size: 21px; font-weight: bold; }
     .stat { display: flex; flex-direction: column; gap: 10px; }
