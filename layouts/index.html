@@ -34,14 +34,14 @@
         <div class="page-list">
             {{ range $newPages }}
             <article class="page-item">
-                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 {{ if .Date }}
                 <div class="page-meta">{{ .Date.Format "January 2, 2006" }}</div>
                 {{ end }}
                 {{ if .Summary }}
                 <div class="page-summary">{{ .Summary }}</div>
                 {{ end }}
-                <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+                <a href="{{ .RelPermalink }}" class="read-more">Read more →</a>
             </article>
             {{ end }}
         </div>
