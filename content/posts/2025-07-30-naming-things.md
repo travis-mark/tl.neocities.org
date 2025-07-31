@@ -5,6 +5,8 @@ date: 2025-07-30
 
 The annual summer of re-development continues as people rush to fix iOS beta bugs and adopt new APIs while they still have existing users to support. Standing with one foot in each camp means cutting against the grain of Apple’s “we only look forward” philosophy. Recent discussion online reminded me of a useful trick old enough it risks being forgotten.
 
+<!--more-->
+
 Let’s start with the problem: you want to adopt a new feature like .glassEffect() for iOS 26. But older versions don’t know what glass effect is so instead of:
 
     Button(“Buy Now”).glassEffect()
